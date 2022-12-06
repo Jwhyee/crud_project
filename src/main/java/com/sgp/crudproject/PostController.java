@@ -14,11 +14,6 @@ public class PostController {
 
     private final PostRepository postRepository;
 
-    @GetMapping("/post/list")
-    public String showPostList() {
-        return "post/post-list";
-    }
-
     @GetMapping("/post/new")
     public String showMainPage() {
         return "post/post-create";
@@ -30,7 +25,7 @@ public class PostController {
 
         postRepository.printPost();
         log.info("포스트 생성 메소드 호출");
-        return "post-input";
+        return "post/post-create";
     }
 
 }
