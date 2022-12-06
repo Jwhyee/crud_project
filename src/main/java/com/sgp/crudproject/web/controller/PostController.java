@@ -1,6 +1,6 @@
 package com.sgp.crudproject.web.controller;
 
-import com.sgp.crudproject.domain.post.PostRepository;
+import com.sgp.crudproject.service.PostService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Slf4j
 public class PostController {
 
-    private final PostRepository postRepository;
+    private final PostService postService;
 
     @GetMapping("/post/new")
     public String showMainPage() {
@@ -22,7 +22,7 @@ public class PostController {
 
     @PostMapping("/post/new")
     public String createNewPost(String title, String content) {
-
+        postService.savePost(title, content);
         return "post/post-create";
     }
 
