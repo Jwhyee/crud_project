@@ -21,9 +21,8 @@ public class PostController {
     }
 
     @PostMapping("/post/new")
-    public String createNewPost(String title, String content) {
+    public String createPost(String title, String content) {
         postService.savePost(title, content);
-        return "post/post-create";
+        return "";
     }
-
 }

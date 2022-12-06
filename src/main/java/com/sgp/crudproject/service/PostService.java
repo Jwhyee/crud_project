@@ -8,13 +8,16 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class PostService {
+
     private final PostRepository postRepository;
 
     public void savePost(String title, String content) {
-        Post post = new Post();
-        post.setTitle(title);
-        post.setContent(content);
+        Post newPost = new Post();
 
-        postRepository.save(post);
+        newPost.setTitle(title);
+        newPost.setContent(content);
+
+        postRepository.save(newPost);
     }
+
 }
