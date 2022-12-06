@@ -22,10 +22,7 @@ public class PostController {
 
     @PostMapping("/post/new")
     public String createNewPost(String title, String content) {
-        postRepository.savePost(title, content);
 
-        postRepository.printPost();
-        log.info("포스트 생성 메소드 호출");
         return "post/post-create";
     }
 

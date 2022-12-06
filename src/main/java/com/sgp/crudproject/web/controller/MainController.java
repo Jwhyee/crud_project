@@ -1,4 +1,4 @@
-package com.sgp.crudproject;
+package com.sgp.crudproject.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

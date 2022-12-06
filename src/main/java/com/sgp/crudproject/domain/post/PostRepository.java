@@ -14,8 +14,7 @@ public class PostRepository {
     int id = 0;
 
     public void savePost(String title, String content) {
-        Post newPost = new Post(id++, title, content);
-        postList.add(newPost);
+
     }
 
     public void printPost() {
