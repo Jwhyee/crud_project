@@ -1,5 +1,6 @@
-package com.sgp.crudproject;
+package com.sgp.crudproject.web.controller;
 
+import com.sgp.crudproject.domain.post.PostRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

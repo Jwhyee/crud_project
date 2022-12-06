@@ -1,4 +1,4 @@
-package com.sgp.crudproject;
+package com.sgp.crudproject.domain.post;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
