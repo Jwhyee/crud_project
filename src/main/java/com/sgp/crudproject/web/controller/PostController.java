@@ -5,8 +5,11 @@ import com.sgp.crudproject.service.PostService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 // Controller, Service, Repository, Entity
@@ -29,4 +32,11 @@ public class PostController {
         return "redirect:/post/{id}";
     }
 
+    @GetMapping("/post/{id}")
+    public String detailPost(@PathVariable long id, Model model) {
+        Post currentPost = postService.findPostById(id);
+        if(currentPost == null) return "main/error";
+        model.addAttribute("post", currentPost);
+        return "post/post-detail";
+    }
 }

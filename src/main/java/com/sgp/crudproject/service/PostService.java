@@ -5,6 +5,8 @@ import com.sgp.crudproject.domain.post.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class PostService {
@@ -20,4 +22,9 @@ public class PostService {
         return postRepository.save(newPost);
     }
 
+    public Post findPostById(long id) {
+        Optional<Post> findPost = postRepository.findById(id);
+
+        return findPost.orElse(null);
+    }
 }
