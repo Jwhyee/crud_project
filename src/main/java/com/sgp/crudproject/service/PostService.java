@@ -14,10 +14,10 @@ public class PostService {
     private final PostRepository postRepository;
 
     public Post savePost(String title, String content) {
-        Post newPost = new Post();
-
-        newPost.setTitle(title);
-        newPost.setContent(content);
+        Post newPost = Post.builder()
+                .title(title)
+                .content(content)
+                .build();
 
         return postRepository.save(newPost);
     }
