@@ -11,13 +11,13 @@ public class PostService {
 
     private final PostRepository postRepository;
 
-    public void savePost(String title, String content) {
+    public Post savePost(String title, String content) {
         Post newPost = new Post();
 
         newPost.setTitle(title);
         newPost.setContent(content);
 
-        postRepository.save(newPost);
+        return postRepository.save(newPost);
     }
 
 }
