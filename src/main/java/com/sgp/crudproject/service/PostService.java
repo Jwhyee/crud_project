@@ -6,6 +6,7 @@ import com.sgp.crudproject.web.dto.PostDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,5 +28,9 @@ public class PostService {
         Optional<Post> findPost = postRepository.findById(id);
 
         return findPost.orElse(null);
+    }
+
+    public List<Post> findPosts() {
+        return postRepository.findAll();
     }
 }

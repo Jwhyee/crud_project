@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
+
 // Controller, Service, Repository, Entity
 @Controller
 @RequiredArgsConstructor
@@ -36,8 +38,15 @@ public class PostController {
     @GetMapping("/post/{id}")
     public String detailPost(@PathVariable long id, Model model) {
         Post currentPost = postService.findPostById(id);
-        if(currentPost == null) return "main/error";
+        if (currentPost == null) return "main/error";
         model.addAttribute("post", currentPost);
         return "post/post-detail";
+    }
+
+    @GetMapping("/posts")
+    public String showPostList(Model model) {
+        List<Post> postList = postService.findPosts();
+        model.addAttribute("posts", postList);
+        return "post/post-list";
     }
 }

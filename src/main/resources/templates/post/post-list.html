@@ -1,6 +1,6 @@
 <html
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-        xmlns:th="http://thymeleaf.org"
+        xmlns:th="http://www.thymeleaf.org"
         layout:decorate="~{layout}">
 
 <div layout:fragment="content" class="container my-3">
@@ -18,17 +18,17 @@
         <tr>
             <th>번호</th>
             <th>제목</th>
-            <th>글쓴이</th>
+<!--            <th>글쓴이</th>-->
             <th>작성일시</th>
         </tr>
         </thead>
         <tbody>
         <!--반복문으로 아래 출력하기-->
-        <tr>
-            <td>번호 출력</td>
-            <td>제목 출력</td>
-            <td>작성자 출력</td>
-            <td>작성일시 출력</td>
+        <tr th:each="post : ${posts}" th:onClick="|location.href='/post/${post.getId()}'|">
+            <td th:text="${post.getId()}">번호 출력</td>
+            <td th:text="${post.getTitle()}">제목 출력</td>
+<!--            <td th:text="${post.get}">작성자 출력</td>-->
+            <td th:text="${#temporals.format(post.getCreateDate(), 'MM월 dd일(HH:mm)')}">작성일시 출력</td>
         </tr>
         </tbody>
     </table>
