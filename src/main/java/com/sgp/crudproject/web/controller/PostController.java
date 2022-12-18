@@ -2,6 +2,7 @@ package com.sgp.crudproject.web.controller;
 
 import com.sgp.crudproject.domain.post.Post;
 import com.sgp.crudproject.service.PostService;
+import com.sgp.crudproject.web.dto.PostDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -26,8 +27,8 @@ public class PostController {
     }
 
     @PostMapping("/post/new")
-    public String createPost(String title, String content, RedirectAttributes redirectAttributes) {
-        Post newPost = postService.savePost(title, content);
+    public String createPost(PostDto postDto, RedirectAttributes redirectAttributes) {
+        Post newPost = postService.savePost(postDto);
         redirectAttributes.addAttribute("id", newPost.getId());
         return "redirect:/post/{id}";
     }

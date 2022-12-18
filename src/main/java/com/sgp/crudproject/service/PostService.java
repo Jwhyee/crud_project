@@ -2,6 +2,7 @@ package com.sgp.crudproject.service;
 
 import com.sgp.crudproject.domain.post.Post;
 import com.sgp.crudproject.domain.post.PostRepository;
+import com.sgp.crudproject.web.dto.PostDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +14,10 @@ public class PostService {
 
     private final PostRepository postRepository;
 
-    public Post savePost(String title, String content) {
+    public Post savePost(PostDto dto) {
         Post newPost = Post.builder()
-                .title(title)
-                .content(content)
+                .title(dto.getTitle())
+                .content(dto.getContent())
                 .build();
 
         return postRepository.save(newPost);
