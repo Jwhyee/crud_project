@@ -14,14 +14,14 @@
             <div class="d-flex justify-content-end">
                 <div class="badge bg-light text-dark p-2 text-start mx-3">
                     <div class="mb-2">수정 날짜</div>
-                    <div>수정일 출력</div>
+                    <div th:text="${#temporals.format(post.getModifyDate(), 'yyyy-MM-dd HH:mm')}">수정일 출력</div>
                 </div>
 
                 <div class="badge bg-light text-dark p-2 text-start">
                     <div class="mb-2">
                         <span>작성자 아이디</span>
                     </div>
-                    <div>작성일 출력</div>
+                    <div th:text="${#temporals.format(post.getCreateDate(), 'yyyy-MM-dd HH:mm')}">작성일 출력</div>
                 </div>
             </div>
         </div>
