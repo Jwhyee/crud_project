@@ -1,5 +1,6 @@
 package com.sgp.crudproject.domain.post;
 
+import com.sgp.crudproject.domain.base.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,12 +16,7 @@ import java.time.LocalDateTime;
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Post {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class Post extends BaseEntity {
     private String title;
     private String content;
 }
